@@ -13,6 +13,10 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-button (click)="takePicture"></ion-button>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="addPhotoToGallery()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

@@ -1,4 +1,5 @@
 import { Camera, CameraResultType } from '@capacitor/camera';
+import { PhotoService } from '../services/photo.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,7 +9,7 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(public photoService: PhotoService) {}
 
   takePicture = async () => {
     const image = await Camera.getPhoto({
@@ -17,7 +18,11 @@ export class Tab2Page {
       resultType: CameraResultType.Uri
     });
     var imageUrl = image.webPath;
-    imageElement.src = imageUrl;
+    // imageElement.src = imageUrl;
+  }
+
+  addPhotoToGallery() {
+    this.photoService.addNewToGallery();
   }
 
 }
