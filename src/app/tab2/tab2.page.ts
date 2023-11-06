@@ -1,3 +1,4 @@
+import { Camera, CameraResultType } from '@capacitor/camera';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,5 +9,15 @@ import { Component } from '@angular/core';
 export class Tab2Page {
 
   constructor() {}
+
+  takePicture = async () => {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.Uri
+    });
+    var imageUrl = image.webPath;
+    imageElement.src = imageUrl;
+  }
 
 }
